@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/email_api
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+  mail:
+    host: smtp.gmail.com                  # Endereço do servidor SMTP
+    port: 587                             # Porta do servidor SMTP
+    username: ${email.username}           # Usuário do servidor SMTP
+    password: ${email.password}           # Senha do servidor SMTP
+    protocol: smtp                        # Protocolo SMTP (pode ser smtp, smtps ou smtps)
+    properties:
+      mail:
+        smtp:
+          auth: true                      # Ativar autenticação SMTP
+          starttls:
+            enable: true                  # Habilitar STARTTLS para criptografia
+            required: true                # Requer STARTTLS
+          ssl:
+            trust: smtp.gmail.com         # Confiar no servidor SMTP (pode ser o mesmo que o host)
